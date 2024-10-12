@@ -6,15 +6,11 @@
 */
 
 #include "corneish_zen.dtsi"
-#include <dt-bindings/led/led.h>
-
-
 
 /{
     chosen {
         zephyr,display = &epd;
         zmk,battery = &vbatt;
-        zmk,underglow = &led_strip;
     };
 
     kscan0: kscan {
@@ -38,27 +34,11 @@
             ;
     };
 
-    //leds {
-     //   compatible = "gpio-leds";
-     //   blue_led: led_0 {
-     //       gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-     //   };
-   // };
-
-    ext-power {
-        compatible = "zmk,ext-power-generic";
-        label = "EXT_POWER";
-        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-         init-delay-ms = <50>;
-    };
-
      vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
     };
 
 };
-
-
 
 &pinctrl {
     spi0_default: spi0_default {
